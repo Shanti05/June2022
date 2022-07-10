@@ -34,16 +34,16 @@ else
 //Create a new time and material record//
 
 //Click on administration tab
-IWebElement administrationTab = driver.FindElement(By.XPath(/html/body/div[3]/div/div/ul/li[5]/a);
+IWebElement administrationTab = driver.FindElement(By.XPath("//*html/body/div[3]/div/div/ul/li[5]/a"));
 administrationTab.Click();
 
 //Select time and material tab from dropdown list
-IWebElement tmoption = driver.FindElement(By.XPath(/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a);
+IWebElement tmoption = driver.FindElement(By.XPath("//*html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
 tmoption.Click();
 Thread.Sleep(1500);
 
 //Click on create new
-IWebElement createNewButton = driver.FindElement(By.XPath(//*[@id="container"]/p/a);
+IWebElement createNewButton = driver.FindElement(By.XPath("//*[@id='container']/p/a"));
 createNewButton.Click();
 Thread.Sleep(1500);
 
@@ -56,12 +56,12 @@ IWebElement DescriptionTextbox = driver.FindElement(By.Id("Description"));
 DescriptionTextbox.SendKeys("June2022");
 
 //Input price tag interactable
-IWebElement priceTag = driver.FindElement(By.XPath(//*[@id="TimeMaterialEditForm"]/div/div[4]/div/span[1]/span/input[1]));
+IWebElement priceTag = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]"));
 priceTag.Click();
 
 //Input price 
 IWebElement priceTextbox = driver.FindElement(By.Id("Price"));
-priceTextbox.SendKeys(20);
+priceTextbox.SendKeys("20");
 
 
 //Click on save button 
@@ -74,7 +74,8 @@ goToLastPageButton.Click();
 
 //Check if the new material record has been created successfully
 IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/ul/li[6]/span"));
-if (newCode.Text == "June2022");
+
+if (newCode.Text == "June2022")
 {
     Console.WriteLine("New record created successfully");
 }
