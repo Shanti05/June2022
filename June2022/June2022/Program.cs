@@ -4,16 +4,19 @@ using OpenQA.Selenium.Chrome;
 
 // Open Chrome browser
 IWebDriver driver = new ChromeDriver();
+driver.Manage().Window.Maximize();
+
 
 //Launch the turnup portal
 driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
+Thread.Sleep(1000);
 
 //Identify username textbox and enter valid username
-IWebElement usernameTextbox = driver.FindElement(By.Id("username"));
-usernameTextbox.SendKeys("Hari");
+IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
+usernameTextbox.SendKeys("hari");
 
 //Identify password textbox and enter valid password
-IWebElement passwordTextbox = driver.FindElement(By.Id("password"));
+IWebElement passwordTextbox = driver.FindElement(By.Id("Password"));
 passwordTextbox.SendKeys("123123");
 
 //Identify login button and click on it
@@ -34,11 +37,12 @@ else
 //Create a new time and material record//
 
 //Click on administration tab
-IWebElement administrationTab = driver.FindElement(By.XPath("//*html/body/div[3]/div/div/ul/li[5]/a"));
+Thread.Sleep(1000);
+IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
 administrationTab.Click();
 
 //Select time and material tab from dropdown list
-IWebElement tmoption = driver.FindElement(By.XPath("//*html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+IWebElement tmoption = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
 tmoption.Click();
 Thread.Sleep(1500);
 
@@ -67,19 +71,20 @@ priceTextbox.SendKeys("20");
 //Click on save button 
 IWebElement saveButton = driver.FindElement(By.Id("SaveButton"));
 saveButton.Click();
+Thread.Sleep(3000);
 
 //go to last page button
 IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
 goToLastPageButton.Click();
 
-//Check if the new material record has been created successfully
-IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/ul/li[6]/span"));
+//Check if the material record has been created successfully
+IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
 if (newCode.Text == "June2022")
 {
-    Console.WriteLine("New record created successfully");
+    Console.WriteLine("New material record created successfully.");
 }
 else
 {
-    Console.WriteLine("New record hasn't been created");
+    Console.WriteLine("New material record hasn't been created");
 }
