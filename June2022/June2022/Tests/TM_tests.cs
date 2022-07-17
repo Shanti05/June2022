@@ -1,11 +1,9 @@
 ﻿
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
 // Open Chrome browser
 IWebDriver driver = new ChromeDriver();
 driver.Manage().Window.Maximize();
-
 
 //Launch the turnup portal
 driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
@@ -22,6 +20,7 @@ passwordTextbox.SendKeys("123123");
 //Identify login button and click on it
 IWebElement loginButton = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
 loginButton.Click();
+
 
 //Check if the user has successfully logged in
 IWebElement helloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
@@ -76,6 +75,7 @@ Thread.Sleep(3000);
 //go to last page button
 IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
 goToLastPageButton.Click();
+Thread.Sleep(1500);
 
 //Check if the material record has been created successfully
 IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
@@ -87,4 +87,51 @@ if (newCode.Text == "June2022")
 else
 {
     Console.WriteLine("New material record hasn't been created");
+
 }
+//Edit time and material functionality//
+
+//Identify edit textbox
+IWebElement editTextbox = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
+editTextbox.Click();
+
+//Input new code text box
+IWebElement newcodeTextbox = driver.FindElement(By.Id("Code"));
+newcodeTextbox.Clear();
+newcodeTextbox.SendKeys("Edited");
+
+//Input newdescription text box
+IWebElement newdescriptionTextbox = driver.FindElement(By.Id("Description"));
+newdescriptionTextbox.Clear();
+newdescriptionTextbox.SendKeys("Edited1");
+
+//Input new price tag interactable
+IWebElement newpriceTag = driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]"));
+IWebElement newpriceTextbox = driver.FindElement(By.Id("Price"));
+
+newpriceTag.Click();
+newpriceTextbox.Clear();  
+newpriceTag.Click();
+newpriceTextbox.SendKeys("$1990");
+
+//click on new save button
+IWebElement newSaveButton = driver.FindElement(By.Id("SaveButton"));
+newSaveButton.Click();
+Thread.Sleep(1000);
+
+
+//go to last page button
+IWebElement goToLastPage = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
+goToLastPage.Click();
+Thread.Sleep(1500);
+
+//delete the record
+IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
+deleteButton.Click();
+
+//click on delete ok button
+driver.SwitchTo().Alert().Accept();
+
+
+
+
