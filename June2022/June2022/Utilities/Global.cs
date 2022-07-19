@@ -1,12 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace June2022.Utilities
-{
-    internal class Global
-    {
-    }
-}
+﻿global using OpenQA.Selenium;
+global using June2022.Pages;
+global using OpenQA.Selenium.Chrome;

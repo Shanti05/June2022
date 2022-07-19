@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,15 +48,19 @@ namespace June2022.Pages
             //Check if the material record has been created successfully
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if (newCode.Text == "June2022")
-            {
-                Console.WriteLine("New material record created successfully.");
-            }
-            else
-            {
-                Console.WriteLine("New material record hasn't been created");
+            //ASSERTION NO1
+            Assert.That(newCode.Text == "June2022", "Actual code and expected code do not match");
 
-            }
+            //Assertion no2
+            //if (newCode.Text == "June2022")
+            //{
+            //    Assert.Pass("New material record created successfully.");
+            //}
+            //else
+            //{
+            //    Assert.Fail("New material record hasn't been created");
+
+            //}
         }
 
         public void EditTM(IWebDriver driver)
@@ -94,7 +99,7 @@ namespace June2022.Pages
             goToLastPage.Click();
             Thread.Sleep(1500);
         }
-        public void Delete(IWebDriver driver)
+        public void DeleteTM(IWebDriver driver)
         {
             //delete the record
             IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last]/td[5]/a[2]"));
