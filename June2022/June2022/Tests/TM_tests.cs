@@ -4,40 +4,35 @@ using NUnit.Framework;
 namespace June2022.Tests
 {
     [TestFixture]
+    [Parallelizable]
     public class TM_Tests : CommonDriver
     {
-        [SetUp]
-        public void LoginSteps()
-        {
-            driver = new ChromeDriver();
-         LoginPage LoginPageobj = new LoginPage();
-         LoginPageobj.LoginActions(driver);
+        //page object initialization
 
-         HomePage HomePageObj = new HomePage();
-         HomePageObj.GotoTMPage(driver);
-        }
-        [Test]
+        HomePage HomePageObj = new HomePage();
+        TMPage TMPageObj = new TMPage();
+
+        [Test, Order(1), Description("Check if user is able to create login data") ]
         public void CreateTmTest()
         {
-            TMPage TMPageObj = new TMPage();
-         TMPageObj.CreateTM(driver);
+            
+            HomePageObj.GotoTMPage(driver);
+            TMPageObj.CreateTM(driver);
         }
-        [Test]
+        [Test, Order(2), Description("Check if user is able to edit login data")]
         public void EditTmTest()
         {
-            TMPage TMPageObj = new TMPage();
+            
+            HomePageObj.GotoTMPage(driver);
             TMPageObj.EditTM(driver);
         }
-        [Test]
+        [Test, Order(3), Description("Check if user is ablee to delete login data")]
         public void DeleteTmTest()
         {
-            TMPage TMPageObj = new TMPage();
+           
+            HomePageObj.GotoTMPage(driver);
             TMPageObj.DeleteTM(driver);
         }
-        [TearDown]
-        public void CloseTestRun()
-        {
-
-        }
+        
     }
 }

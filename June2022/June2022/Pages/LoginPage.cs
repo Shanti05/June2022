@@ -13,8 +13,7 @@ namespace June2022.Pages
     {
         public void LoginActions(IWebDriver driver)
         {
-            // Open Chrome browser
-            IWebDriver Driver = new ChromeDriver();
+            
             driver.Manage().Window.Maximize();
 
             //Launch the turnup portal
@@ -34,6 +33,8 @@ namespace June2022.Pages
                 //Identify login button and click on it
                 IWebElement loginButton = driver.FindElement(By.XPath("//*[@id='loginForm']/form/div[3]/input[1]"));
                 loginButton.Click();
+
+               
             }
             catch(Exception ex)
             {
