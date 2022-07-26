@@ -19,21 +19,21 @@ namespace June2022.Tests
         public void CreateEmployee()
         {
             
-            homePageObj.GotoEmployeePage(driver);
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.CreateEmployee(driver);
         }
         [Test]
         public void EditEmployee()
         {
             
-            homePageObj.GotoEmployeePage(driver);
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.EditEmployee(driver);
         }
         [Test]
         public void DeleteEmployee()
         {
 
-            homePageObj.GotoEmployeePage(driver);
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.DeleteEmployee(driver);
         }
         [TearDown]

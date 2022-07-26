@@ -24,9 +24,9 @@ namespace June2022.Tests
         {
             
             HomePageObj.GotoTMPage(driver);
-            TMPageObj.EditTM(driver);
+            TMPageObj.EditTM(driver,"nskjd","jfrnij","kdsfjnk");
         }
-        [Test, Order(3), Description("Check if user is ablee to delete login data")]
+        [Test, Order(3), Description("Check if user is able to delete login data")]
         public void DeleteTmTest()
         {
            
