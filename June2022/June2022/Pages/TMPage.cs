@@ -82,16 +82,11 @@ namespace June2022.Pages
             //Identify edit textbox
             IWebElement findCodeRecordCreated = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if (findCodeRecordCreated.Text == "June2022")
-            {
-                IWebElement editTextBox = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
-                Thread.Sleep(1000);
-                editTextBox.Click();
-            }
-            else
-            {
-                Assert.Fail("Record to be edited hasn't been found. Record not edited");
-            }
+            
+            IWebElement editTextBox = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
+            Thread.Sleep(1000);
+            editTextBox.Click();
+           
 
             //Input edit code text box
             IWebElement editCodeTextbox = driver.FindElement(By.Id("Code"));
@@ -131,16 +126,19 @@ namespace June2022.Pages
         }
         public string GetEditedCode(IWebDriver driver)
         {
+            Thread.Sleep(2000);
             IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
             return editedCode.Text;
         }
         public string GetEditedDescription(IWebDriver driver)
         {
+            Thread.Sleep(2000);
             IWebElement editedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
             return editedDescription.Text;
         }
         public string GetEditedPrice(IWebDriver driver)
         {
+            Thread.Sleep(2000);
             IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
             return editedPrice.Text;
         }
@@ -163,16 +161,26 @@ namespace June2022.Pages
             driver.Navigate().Refresh();
             Thread.Sleep(3000);
 
+        }
+        public void DeletedCodeAssertion(IWebDriver driver)
+        {
+            Thread.Sleep(2000);
             IWebElement deletedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-            
+            Assert.That(deletedCode.Text != "Guitar", "Record has not been deleted");
+        }
+        public void DeletedDescriptionAssertion(IWebDriver driver)
+        {
+            Thread.Sleep(2000);
             IWebElement deletedDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            Assert.That(deletedDescription.Text != "White", "Record has not been deleted");
+        }
+        public void DeletedPriceAssertion(IWebDriver driver)
+        {
+            Thread.Sleep(2000);
             IWebElement deletedPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
-
-            Assert.That(deletedCode.Text != "Edited", "Code record hasn't been deleted");
-            
-            Assert.That(deletedDescription.Text != "Edited1", "Description record hasn't been deleted");
-            Assert.That(deletedPrice.Text != "$20.00", "Price record hasn't been deleted");
+            Assert.That(deletedPrice.Text != "$900.00", "Record has not been deleted");
 
         }
+        
     }
 }

@@ -11,7 +11,7 @@ namespace June2022.Pages.StepDefinition
         LoginPage LoginPageobj = new LoginPage();
         HomePage HomePageObj = new HomePage();
         TMPage TMPageObj = new TMPage();
-        private object editedCode;
+        
 
         [Given(@"I logged into turnup portal successfully")]
         public void GivenILoggedIntoTurnupPortalSuccessfully()
@@ -51,7 +51,8 @@ namespace June2022.Pages.StepDefinition
         [When(@"I update '([^']*)','([^']*)','([^']*)' of existing material record")]
         public void WhenIUpdateOfExistingMaterialRecord(string p0, string black, string p2)
         {
-            
+            TMPage tmPageObj = new TMPage;
+            tmPageObj.EditTM(driver);
         }
 
         [Then(@"The record should have the '([^']*)','([^']*)','([^']*)' updated")]
@@ -67,6 +68,21 @@ namespace June2022.Pages.StepDefinition
 
         }
 
+        [When(@"I deleted an existing time and material record")]
+        public void WhenIDeletedAnExistingTimeAndMaterialRecord()
+        {
+            TMPage tmPageObj = new TMPage();
+            tmPageObj.DeleteTM(driver);
+
+        }
+
+        [Then(@"The record deleted successfully")]
+        public void ThenTheRecordDeletedSuccessfully()
+        {
+            TMPage tmPageObj = new TMPage();
+            tmPageObj.DeletedCodeAssertion(driver);
+
+        }
 
 
     }
