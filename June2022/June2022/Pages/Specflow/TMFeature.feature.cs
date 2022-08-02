@@ -76,14 +76,14 @@ namespace June2022.Pages.Specflow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create material record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("1 Create material record with valid details")]
         [NUnit.Framework.CategoryAttribute("myTag")]
-        public void CreateMaterialRecordWithValidDetails()
+        public void _1CreateMaterialRecordWithValidDetails()
         {
             string[] tagsOfScenario = new string[] {
                     "myTag"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 Create material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,12 +111,12 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Edit material record with valid details")]
+        [NUnit.Framework.DescriptionAttribute("2 Edit material record with valid details")]
         [NUnit.Framework.CategoryAttribute("yourTag")]
         [NUnit.Framework.TestCaseAttribute("Keyboard", "Black", "$700.00", null)]
         [NUnit.Framework.TestCaseAttribute("Violin", "Brown", "$600.00", null)]
         [NUnit.Framework.TestCaseAttribute("Guitar", "White", "$900.00", null)]
-        public void EditMaterialRecordWithValidDetails(string code, string description, string price, string[] exampleTags)
+        public void _2EditMaterialRecordWithValidDetails(string code, string description, string price, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "yourTag"};
@@ -129,7 +129,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Code", code);
             argumentsOfScenario.Add("Description", description);
             argumentsOfScenario.Add("Price", price);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 Edit material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 16
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -157,12 +157,12 @@ testRunner.Then(string.Format("The record should have the \'{0}\',\'{1}\',\'{2}\
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Delete material record with valid details")]
-        public void DeleteMaterialRecordWithValidDetails()
+        [NUnit.Framework.DescriptionAttribute("3 Delete material record with valid details")]
+        public void _3DeleteMaterialRecordWithValidDetails()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3 Delete material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

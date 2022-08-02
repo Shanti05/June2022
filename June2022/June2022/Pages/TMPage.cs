@@ -92,14 +92,14 @@ namespace June2022.Pages
             IWebElement editCodeTextbox = driver.FindElement(By.Id("Code"));
             editCodeTextbox.Click();
             editCodeTextbox.Clear();
-            editCodeTextbox.SendKeys("code");
+            editCodeTextbox.SendKeys(code);
             Thread.Sleep(2000);
 
             //Input edit description text box
             IWebElement editDescriptionTextbox = driver.FindElement(By.Id("Description"));
             editDescriptionTextbox.Click();
             editDescriptionTextbox.Clear();
-            editDescriptionTextbox.SendKeys("Edited1");
+            editDescriptionTextbox.SendKeys(description);
             Thread.Sleep(2000);
 
             //Input edit price tag interactable
@@ -150,6 +150,7 @@ namespace June2022.Pages
             Thread.Sleep(2000);
 
             //delete the record
+            Thread.Sleep(2500);
             IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last]/td[5]/a[2]"));
             Thread.Sleep(2500);
             deleteButton.Click();

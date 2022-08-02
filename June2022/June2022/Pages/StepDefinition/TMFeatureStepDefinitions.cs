@@ -11,7 +11,7 @@ namespace June2022.Pages.StepDefinition
         LoginPage LoginPageobj = new LoginPage();
         HomePage HomePageObj = new HomePage();
         TMPage TMPageObj = new TMPage();
-        
+
 
         [Given(@"I logged into turnup portal successfully")]
         public void GivenILoggedIntoTurnupPortalSuccessfully()
@@ -31,7 +31,7 @@ namespace June2022.Pages.StepDefinition
         [When(@"I create a new material record")]
         public void WhenICreateANewMaterialRecord()
         {
-            
+
             TMPageObj.CreateTM(driver);
         }
 
@@ -49,10 +49,10 @@ namespace June2022.Pages.StepDefinition
 
         }
         [When(@"I update '([^']*)','([^']*)','([^']*)' of existing material record")]
-        public void WhenIUpdateOfExistingMaterialRecord(string p0, string black, string p2)
+        public void WhenIUpdateOfExistingMaterialRecord(string p0, string p1, string p2)
         {
-            TMPage tmPageObj = new TMPage;
-            tmPageObj.EditTM(driver);
+            TMPage tmPageObj = new TMPage();
+            tmPageObj.EditTM(driver, p0, p1, p2);
         }
 
         [Then(@"The record should have the '([^']*)','([^']*)','([^']*)' updated")]
@@ -62,9 +62,9 @@ namespace June2022.Pages.StepDefinition
             string editedDescription = TMPageObj.GetEditedDescription(driver);
             string editedPrice = TMPageObj.GetEditedCode(driver);
 
-            Assert.That(editedCode == "p0", "Acutal code and expected code do not match");
-            Assert.That(editedDescription == "p1", "Acutal description and expected description do not match");
-            Assert.That(editedPrice == "p2", "Acutal Price and expected Price do not match");
+            Assert.That(editedCode == p0, "Acutal code and expected code do not match");
+            Assert.That(editedDescription == p1, "Acutal description and expected description do not match");
+            Assert.That(editedPrice == p2, "Acutal Price and expected Price do not match");
 
         }
 
@@ -83,8 +83,7 @@ namespace June2022.Pages.StepDefinition
             tmPageObj.DeletedCodeAssertion(driver);
 
         }
-
-
+        
     }
 
 
